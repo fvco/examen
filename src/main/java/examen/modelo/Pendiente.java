@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 @Table(name="pendiente")
 public class Pendiente {
@@ -17,13 +19,8 @@ public class Pendiente {
 	private long id;
 	
 	@Column(name="pendiente")
+	@Length(min=1, message="El pendiente no puede estar vacio")
 	private String pendiente;
-
-	public Pendiente(long id, String pendiente) {
-		super();
-		this.id = id;
-		this.pendiente = pendiente;
-	}
 
 	public long getId() {
 		return id;
